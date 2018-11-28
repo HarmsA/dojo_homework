@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% load static %}
+    <!--<link rel="stylesheet" type="text/css" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'words/main.css' %}">
+
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <form action="/process/" method="post"><br>
+            {% csrf_token %}
+            <label for="word">Add a new word</label><br>
+            <input name="word" type="text"><br><br>
+            <label for="color">Choose color</label>
+            <input type="hidden" name="color" value="black" checked><br>
+            <input type="radio" name="color" value="red">Red<br>
+            <input type="radio" name="color" value="blue">Blue<br>
+            <input type="radio" name="color" value="green">Green<br>
+            <input type="radio" name="color" value="orange">Orange<br>
+            <input type="hidden" name="big_font" value=0 checked><br>
+            <input type="checkbox" name="big_font" value=big>Big Font<br>
+            <input type="submit" value="Add to Session">
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
